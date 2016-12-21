@@ -1,0 +1,250 @@
+{% load staticfiles %}
+
+<div id="top-banner-and-menu">
+
+    <div class="container">
+
+        <div class="col-xs-12 col-sm-4 col-md-3 sidemenu-holder">
+
+            <div class="side-menu animate-dropdown">
+                <div class="head"><i class="fa fa-list"></i> Categories</div>
+                <nav class="yamm megamenu-horizontal" role="navigation">
+                    <ul class="nav">
+
+                        {% for main in main_category %}
+                            <li class="dropdown menu-item">
+                                <a href="" class="dropdown-toggle" data-toggle="dropdown">{{ main.title }}</a>
+
+                                <ul class="dropdown-menu mega-menu">
+                                    <li class="yamm-content">
+                                        <!-- ================================== MEGAMENU VERTICAL ================================== -->
+
+                                        <div class="row">
+                                            <div class="col-xs-12 col-lg-4">
+                                                <ul>
+                                                    {% for category in main.category_set.all %}
+                                                        <li><a href="{{ category.get_absolute_url }}"
+                                                               target="_blank">{{ category.title }}
+                                                            ({{ category.course_detail_set.count }})</a></li>
+                                                    {% endfor %}
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                    </li>
+                                </ul>
+                            </li><!-- /.menu-item -->
+                        {% endfor %}
+
+                    </ul><!-- /.nav -->
+                </nav><!-- /.megamenu-horizontal -->
+            </div><!-- /.side-menu -->
+
+        </div><!-- /.sidemenu-holder -->
+
+
+
+
+            <!-- ========================================= SECTION – HERO : END ========================================= -->
+
+
+    </div><!-- /.container -->
+</div><!-- /#top-banner-and-menu -->
+
+
+<!-- ========================================= CATEGORY TREE ========================================= -->
+{#<div class="widget accordion-widget category-accordions">#}
+{#    <h1 class="border">Category Tree</h1>#}
+{#    <div class="accordion">#}
+{##}
+{#        <div class="accordion-group">#}
+{##}
+{#            <div class="accordion-heading">#}
+{##}
+{#                <a class="accordion-toggle" data-toggle="collapse" href="#collapseOne">#}
+{#                Development#}
+{#                </a>#}
+{##}
+{#            </div>#}
+{##}
+{#            <div id="collapseOne" class="accordion-body collapse">#}
+{#                <div class="accordion-inner">#}
+{#                    <ul>#}
+{#                        <li>#}
+{##}
+{#                            <div class="accordion-heading">#}
+{#                                <a href="collapseSub1" data-toggle="collapse"><strong>Web Development</strong></a><br>#}
+{#                                <a href="#collapseSub1" data-toggle="collapse"><strong>Programming Languages </strong></a><br>#}
+{#                            </div>#}
+{#                        </li>#}
+{##}
+{#                    </ul>#}
+{#                </div><!-- /.accordion-inner -->#}
+{#            </div>#}
+{#        </div><!-- /.accordion-group -->#}
+{#    </div><!-- /.accordion -->#}
+{#</div><!-- /.category-accordions -->#}
+
+
+{#        <div class="accordion-group">#}
+{#            <div class="accordion-heading">#}
+{#                <a class="accordion-toggle" data-toggle="collapse" href="#collapseThree">#}
+{#                    Business &amp; Marketing#}
+{#                </a>#}
+{#            </div>#}
+{#            <div id="collapseThree" class="accordion-body collapse">#}
+{#                <div class="accordion-inner">#}
+{#                    <ul>#}
+{#                        <li>#}
+{#                            <div class="accordion-heading">#}
+{#                                <a href="#collapseSub4" data-toggle="collapse"><strong>Business</strong></a>#}
+{#                            </div>#}
+{#                            <div id="collapseSub4" class="accordion-body collapse">#}
+{#                                <ul>#}
+{#                                    <li><a href="#">Finance</a></li>#}
+{#                                    <li><a href="#">Entrepreneurship</a></li>#}
+{#                                    <li><a href="#">Communication</a></li>#}
+{#                                    <li><a href="#">Management</a></li>#}
+{#                                    <li><a href="#">Sales</a></li>#}
+{#                                    <li><a href="#">Strategy</a></li>#}
+{#                                    <li><a href="#">Operations</a></li>#}
+{#                                    <li><a href="#">Project Management</a></li>#}
+{#                                    <li><a href="#">Business Law</a></li>#}
+{#                                    <li><a href="#">Data &amp; Analytics</a></li>#}
+{#                                    <li><a href="#">Home Business </a></li>#}
+{#                                    <li><a href="#">Human Resource </a></li>#}
+{#                                    <li><a href="#">Industry </a></li>#}
+{#                                    <li><a href="#">Media </a></li>#}
+{#                                    <li><a href="#">Others </a></li>#}
+{##}
+{##}
+{#                                </ul>#}
+{#                            </div><!-- /.accordion-body -->#}
+{#                        </li>#}
+{#                        <li>#}
+{#                            <div class="accordion-heading">#}
+{#                                <a href="#collapseSub5" data-toggle="collapse"><strong>Marketing</strong></a>#}
+{#                            </div>#}
+{#                            <div id="collapseSub5" class="accordion-body collapse">#}
+{#                                    <ul>#}
+{#                                        <li><a href="#">Digital Marketing</a></li>#}
+{#                                        <li><a href="#">SEO</a></li>#}
+{#                                        <li><a href="#">Social Media Marketing</a></li>#}
+{#                                        <li><a href="#">Branding</a></li>#}
+{#                                        <li><a href="#">Marketing Fundamentals</a></li>#}
+{#                                        <li><a href="#">Analytics &amp; Automation</a></li>#}
+{#                                        <li><a href="#">Public Relation</a></li>#}
+{#                                        <li><a href="#">Advertising</a></li>#}
+{#                                        <li><a href="#">Video &amp; Mobile Marketing</a></li>#}
+{#                                        <li><a href="#">Content Marketing</a></li>#}
+{#                                        <li><a href="#">Non Digital Marketing</a></li>#}
+{#                                        <li><a href="#">Growth Hacking</a></li>#}
+{#                                        <li><a href="#">Affiliate Marketing</a></li>#}
+{#                                        <li><a href="#">Product Marketing</a></li>#}
+{#                                        <li><a href="#">Others</a></li>#}
+{##}
+{#                                    </ul>#}
+{#                            </div>#}
+{##}
+{#                        </li>#}
+{#                    </ul>#}
+{#                </div><!-- /.accordion-inner -->#}
+{#            </div>#}
+{#        </div>#}
+<!-- /.accordion-group -->
+
+
+{#        <div class="accordion-group">#}
+{#            <div class="accordion-heading">#}
+{#                <a class="accordion-toggle" data-toggle="collapse" href="#collapseFour">#}
+{#                    General Education#}
+{#                </a>#}
+{#            </div>#}
+{#            <div id="collapseFour" class="accordion-body collapse">#}
+{#                <div class="accordion-inner">#}
+{#                    <ul>#}
+{#                        <li>#}
+{#                            <div class="accordion-heading">#}
+{#                                <a href="#collapseSub6" data-toggle="collapse"><strong>Personal Development</strong></a>#}
+{#                            </div>#}
+{#                            <div id="collapseSub6" class="accordion-body collapse">#}
+{#                                <ul>#}
+{#                                    <li><a href="#">Personal Transformation</a></li>#}
+{#                                    <li><a href="#">Productivity</a></li>#}
+{#                                    <li><a href="#">Leadership</a></li>#}
+{#                                    <li><a href="#">Personal Finance</a></li>#}
+{#                                    <li><a href="#">Career Development</a></li>#}
+{#                                    <li><a href="#">Parenting &amp; Relationship</a></li>#}
+{#                                    <li><a href="#">Happiness</a></li>#}
+{#                                    <li><a href="#">Religion &amp; Spirituality </a></li>#}
+{#                                    <li><a href="#">Personal Brand Building</a></li>#}
+{#                                    <li><a href="#">Creativity</a></li>#}
+{#                                    <li><a href="#">Influence</a></li>#}
+{#                                    <li><a href="#">Self Esteem</a></li>#}
+{#                                    <li><a href="#">Stress Management</a></li>#}
+{#                                    <li><a href="#">Memory &amp; Study Skill</a></li>#}
+{#                                    <li><a href="#">Other</a></li>#}
+{#                                </ul>#}
+{#                            </div><!-- /.accordion-body -->#}
+{#                        </li>#}
+{#                        <li>#}
+{#                            <div class="accordion-heading">#}
+{#                                <a href="#collapseSub7" data-toggle="collapse"><strong>Life Style</strong></a>#}
+{#                            </div>#}
+{#                            <div id="collapseSub7" class="accordion-body collapse">#}
+{#                                    <ul>#}
+{#                                        <li><a href="#">Art &amp; Craft</a></li>#}
+{#                                        <li><a href="#">Food &amp; Beverages</a></li>#}
+{#                                        <li><a href="#">Beauty &amp; Makeup</a></li>#}
+{#                                        <li><a href="#">Travel</a></li>#}
+{#                                        <li><a href="#">Gaming</a></li>#}
+{#                                        <li><a href="#">Home Improvement</a></li>#}
+{#                                        <li><a href="#">Pet Care &amp; Training</a></li>#}
+{#                                        <li><a href="#">Others</a></li>#}
+{##}
+{#                                    </ul>#}
+{#                            </div>#}
+{#                            <div class="accordion-heading">#}
+{#                                <a href="#collapseSub8" data-toggle="collapse"><strong>Music</strong></a>#}
+{#                            </div>#}
+{#                            <div id="collapseSub8" class="accordion-body collapse">#}
+{#                                    <ul>#}
+{#                                        <li><a href="#">Instrument</a></li>#}
+{#                                        <li><a href="#">Production</a></li>#}
+{#                                        <li><a href="#">Music Fundamental</a></li>#}
+{#                                        <li><a href="#">Vocal</a></li>#}
+{#                                        <li><a href="#">Music Technique</a></li>#}
+{#                                        <li><a href="#">Music Software</a></li>#}
+{#                                        <li><a href="#">Others</a></li>#}
+{#                                    </ul>#}
+{#                            </div>#}
+{##}
+{#                            <div class="accordion-heading">#}
+{#                                <a href="#collapseSub9" data-toggle="collapse"><strong>Foreign Languages</strong></a>#}
+{#                            </div>#}
+{#                            <div id="collapseSub9" class="accordion-body collapse">#}
+{#                                    <ul>#}
+{#                                        <li><a href="#">English</a></li>#}
+{#                                        <li><a href="#">Spanish</a></li>#}
+{#                                        <li><a href="#">German</a></li>#}
+{#                                        <li><a href="#">French</a></li>#}
+{#                                        <li><a href="#">Japanese</a></li>#}
+{#                                        <li><a href="#">Portuguese</a></li>#}
+{#                                        <li><a href="#">Chinese</a></li>#}
+{#                                        <li><a href="#">Russian</a></li>#}
+{#                                        <li><a href="#">Latin</a></li>#}
+{#                                        <li><a href="#">Arabic</a></li>#}
+{#                                        <li><a href="#">Hebrew</a></li>#}
+{#                                        <li><a href="#">Italian</a></li>#}
+{#                                        <li><a href="#">Others</a></li>#}
+{#                                    </ul>#}
+{#                            </div>#}
+{#                        </li>#}
+{##}
+{#                    </ul>#}
+{#                </div><!-- /.accordion-inner -->#}
+{#            </div>#}
+{#        </div><!-- /.accordion-group -->#}
+
+
+<!-- ========================================= CATEGORY TREE : END ========================================= -->
